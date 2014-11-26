@@ -37,6 +37,7 @@ class MasterViewController: UITableViewController {
 //
 //            println("値=\(dataValue)")
 //        }
+        
     }
 
     override func didReceiveMemoryWarning() {
