@@ -21,7 +21,17 @@ class MasterViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.refreshControl = UIRefreshControl()
+        
+        self.refreshControl?.addTarget(self, action: "pullToRefresh", forControlEvents: .ValueChanged)
+        self.tableView.addSubview(refreshControl!)
+        
+        //self.refreshControl = UIRefreshControl()
+    }
+    
+    func pullToRefresh(){
         //タイトルをつける
+        self.refreshControl?.attributedTitle = NSAttributedString(string: "読み込み中です....")
         self.title = "取引データ一覧"
         
         var url = NSURL(string: "http://webfproject.azurewebsites.net/api/Torihiki?guid=90f21339-cf54-4691-a4cf-92b22af26526&maxday=2014-11-26&minday=2013-10-26")
@@ -31,15 +41,10 @@ class MasterViewController: UITableViewController {
         jsonArray = NSJSONSerialization.JSONObjectWithData(jsondata!, options: NSJSONReadingOptions.AllowFragments, error: nil) as NSArray
         println(String(jsonArray.count))
         
-//        for dat in jsonArray {
-//            let dataget: NSDictionary = dat as NSDictionary
-//            let dataValue:String = dataget.objectForKey("bikou") as String
-//
-//            println("値=\(dataValue)")
-//        }
-        
+        self.refreshControl?.endRefreshing()
+        self.tableView.reloadData()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
