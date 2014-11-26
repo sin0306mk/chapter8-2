@@ -10,9 +10,9 @@ import UIKit
 
 class MasterViewController: UITableViewController {
 
-    var objects = NSMutableArray()
-
-
+    var jsonArray = NSArray()
+//    var jsonDictionary = NSDictionary()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -21,14 +21,21 @@ class MasterViewController: UITableViewController {
         super.viewDidLoad()
         
         //タイトルをつける
-        self.title = "寿司メニュー"
-        objects = ["マグロ", "サーモン", "海老", "ハマチ", "イカ", "鰻"]
+        self.title = "取引データ一覧"
         
-        // Do any additional setup after loading the view, typically from a nib.
-//        self.navigationItem.leftBarButtonItem = self.editButtonItem()
-//
-//        let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
-//        self.navigationItem.rightBarButtonItem = addButton
+        var url = NSURL(string: "http://webfproject.azurewebsites.net/api/Torihiki?guid=90f21339-cf54-4691-a4cf-92b22af26526&maxday=2014-11-26&minday=2013-10-26")
+        var request = NSURLRequest(URL: url!)
+        var jsondata = NSURLConnection.sendSynchronousRequest(request, returningResponse: nil, error: nil)
+        
+        jsonArray = NSJSONSerialization.JSONObjectWithData(jsondata!, options: NSJSONReadingOptions.AllowFragments, error: nil) as NSArray
+        println(String(jsonArray.count))
+        
+        for dat in jsonArray {
+            let dataget: NSDictionary = dat as NSDictionary
+            let dataValue:String = dataget.objectForKey("bikou") as String
+
+            println("値=\(dataValue)")
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,22 +43,18 @@ class MasterViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
-//    func insertNewObject(sender: AnyObject) {
-//        objects.insertObject(NSDate(), atIndex: 0)
-//        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-//        self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-//    }
-
     // MARK: - Segues
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
-//            if let indexPath = self.tableView.indexPathForSelectedRow() {
-//                let object = objects[indexPath.row] as NSDate
-//            (segue.destinationViewController as DetailViewController).detailItem = object
-//            }
+
             if let indexPath = self.tableView.indexPathForSelectedRow(){
-                let object = objects[indexPath.row] as String
+                
+                let dataget: NSDictionary = jsonArray[indexPath.row] as NSDictionary
+                let object:String = dataget.objectForKey("bikou") as String
+                
+//                let object = jsonArray[indexPath.row] as String
+                
                 let controller = segue.destinationViewController as DetailViewController
                 controller.detailItem = object
             }
@@ -65,33 +68,19 @@ class MasterViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return objects.count
+        return jsonArray.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
-
-//        let object = objects[indexPath.row] as NSDate
-//        cell.textLabel.text = object.description
-        var myStr = objects[indexPath.row] as String
+        
+        let dataget: NSDictionary = jsonArray[indexPath.row] as NSDictionary
+        let dataValue:String = dataget.objectForKey("dayTime") as String
+        
+        var myStr = dataValue
+        
         cell.textLabel.text = myStr
         return cell
     }
-
-//    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-//        // Return false if you do not want the specified item to be editable.
-//        return true
-//    }
-//
-//    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-//        if editingStyle == .Delete {
-//            objects.removeObjectAtIndex(indexPath.row)
-//            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-//        } else if editingStyle == .Insert {
-//            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-//        }
-//    }
-
-
 }
 
