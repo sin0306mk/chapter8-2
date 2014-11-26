@@ -29,11 +29,11 @@ class DetailViewController: UIViewController {
             if let label = self.bikou {
                 label.text = detail.bikou
                 label.font = UIFont.boldSystemFontOfSize(24)
-                if (detail.torihikiName == "支払"){
-                    label.textColor = UIColor.redColor()
-                } else {
-                    label.textColor = UIColor.blackColor()
-                }
+//                if (detail.torihikiName == "支払"){
+//                    label.textColor = UIColor.redColor()
+//                } else {
+//                    label.textColor = UIColor.blackColor()
+//                }
             }
             
             if let label = self.dayTime {
@@ -51,23 +51,15 @@ class DetailViewController: UIViewController {
             if let label = self.inMoney {
                 if (detail.inMoney != nil && detail.inMoney != "" ){
                     label.text = "入金額:" + detail.inMoney!
-                } else {
-                    label.text = " "
-                }
-                label.font = UIFont.boldSystemFontOfSize(15)
-                label.textColor = UIColor.blackColor()
-            }
-            
-            if let label = self.outMoney {
-                if (detail.outMoney != nil && detail.outMoney != ""){
+                    label.textColor = UIColor.blackColor()
+                } else if (detail.outMoney != nil && detail.outMoney != "" ){
                     label.text = "出金額:" + detail.outMoney!
-                } else {
+                    label.textColor = UIColor.redColor()
+                }else {
                     label.text = " "
                 }
                 label.font = UIFont.boldSystemFontOfSize(15)
-                label.textColor = UIColor.redColor()
             }
-            
         }
     }
 
