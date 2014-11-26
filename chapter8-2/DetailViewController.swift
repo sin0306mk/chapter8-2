@@ -9,25 +9,32 @@
 import UIKit
 
 class DetailViewController: UIViewController {
+    
+    @IBOutlet weak var bikou: UILabel!
+    @IBOutlet weak var dayTime: UILabel!
 
-    @IBOutlet weak var detailDescriptionLabel: UILabel!
-
-
-    var detailItem: AnyObject? {
+    var detailItem: DataTorhikiModel? {
         didSet {
             // Update the view.
             self.configureView()
         }
     }
-
+    
     func configureView() {
         // Update the user interface for the detail item.
-        if let detail: AnyObject = self.detailItem {
-            if let label = self.detailDescriptionLabel {
-                label.text = detail.description
+        if let detail: DataTorhikiModel = self.detailItem {
+            if let label = self.bikou {
+                label.text = detail.bikou
                 label.font = UIFont.boldSystemFontOfSize(24)
                 label.textColor = UIColor.redColor()
             }
+            
+            if let label = self.dayTime {
+                label.text = detail.dayTime
+                label.font = UIFont.boldSystemFontOfSize(15)
+                label.textColor = UIColor.blackColor()
+            }
+            
         }
     }
 

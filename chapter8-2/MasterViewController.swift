@@ -11,6 +11,7 @@ import UIKit
 class MasterViewController: UITableViewController {
 
     var jsonArray = NSArray()
+    
 //    var jsonDictionary = NSDictionary()
     
     override func awakeFromNib() {
@@ -30,12 +31,12 @@ class MasterViewController: UITableViewController {
         jsonArray = NSJSONSerialization.JSONObjectWithData(jsondata!, options: NSJSONReadingOptions.AllowFragments, error: nil) as NSArray
         println(String(jsonArray.count))
         
-        for dat in jsonArray {
-            let dataget: NSDictionary = dat as NSDictionary
-            let dataValue:String = dataget.objectForKey("bikou") as String
-
-            println("値=\(dataValue)")
-        }
+//        for dat in jsonArray {
+//            let dataget: NSDictionary = dat as NSDictionary
+//            let dataValue:String = dataget.objectForKey("bikou") as String
+//
+//            println("値=\(dataValue)")
+//        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,12 +52,16 @@ class MasterViewController: UITableViewController {
             if let indexPath = self.tableView.indexPathForSelectedRow(){
                 
                 let dataget: NSDictionary = jsonArray[indexPath.row] as NSDictionary
-                let object:String = dataget.objectForKey("bikou") as String
+                let setObj:DataTorhikiModel = DataTorhikiModel()
+                setObj.bikou = dataget.objectForKey("bikou") as? String
+                setObj.dayTime = dataget.objectForKey("dayTime") as? String
+                
+                //let object:String = dataget.objectForKey("bikou") as String
                 
 //                let object = jsonArray[indexPath.row] as String
                 
                 let controller = segue.destinationViewController as DetailViewController
-                controller.detailItem = object
+                controller.detailItem = setObj
             }
         }
     }
@@ -75,11 +80,17 @@ class MasterViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
         
         let dataget: NSDictionary = jsonArray[indexPath.row] as NSDictionary
-        let dataValue:String = dataget.objectForKey("dayTime") as String
+        let dayTime:String = dataget.objectForKey("dayTime") as String
+        let torihikiName:String = dataget.objectForKey("torihikiName") as String
         
-        var myStr = dataValue
-        
+        var myStr = dayTime + " : " + torihikiName
         cell.textLabel.text = myStr
+        
+        if (torihikiName == "支払") {
+            cell.textLabel.textColor = UIColor.redColor()
+        } else {
+            cell.textLabel.textColor = UIColor.blackColor()
+        }
         return cell
     }
 }
