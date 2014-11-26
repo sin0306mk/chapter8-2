@@ -75,40 +75,76 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Detail view content goes here" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Lei-5M-9Gs">
-                                <rect key="frame" x="20" y="219" width="560" height="35"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="300" verticalHuggingPriority="300" text="取引日時" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fNh-oF-Izj">
+                                <rect key="frame" x="29" y="289" width="332" height="37"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="JaA-4L-fij"/>
+                                    <constraint firstAttribute="width" constant="332" id="5hW-NQ-i1z"/>
+                                    <constraint firstAttribute="height" constant="37" id="vx8-mw-whr"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" size="system"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fNh-oF-Izj">
-                                <rect key="frame" x="206" y="268" width="191" height="37"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="取引区分" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ela-Fh-ukI">
+                                <rect key="frame" x="29" y="90" width="521" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="入金額" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YwJ-Qa-sID">
+                                <rect key="frame" x="29" y="372" width="521" height="29"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="191" id="rLI-A2-SEa"/>
+                                    <constraint firstAttribute="height" constant="29" id="zBO-xo-iN8"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="出金額" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0i7-3b-bEH">
+                                <rect key="frame" x="29" y="455" width="521" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="備考" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Lei-5M-9Gs">
+                                <rect key="frame" x="20" y="150" width="560" height="35"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="ArO-ar-DSk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" size="system"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="a0L-h9-sNL" firstAttribute="top" secondItem="fNh-oF-Izj" secondAttribute="bottom" constant="295" id="4ZS-sW-mns"/>
-                            <constraint firstItem="Lei-5M-9Gs" firstAttribute="leading" secondItem="MMQ-IT-qOo" secondAttribute="leadingMargin" constant="4" id="AVt-IL-AyR"/>
-                            <constraint firstItem="fNh-oF-Izj" firstAttribute="top" secondItem="Lei-5M-9Gs" secondAttribute="bottom" constant="48" id="T4S-T7-XPw"/>
-                            <constraint firstItem="Lei-5M-9Gs" firstAttribute="top" secondItem="cIm-e0-J51" secondAttribute="bottom" constant="155" id="WVY-Qg-hye"/>
-                            <constraint firstItem="fNh-oF-Izj" firstAttribute="leading" secondItem="MMQ-IT-qOo" secondAttribute="leading" constant="206" id="mx8-pL-RoR"/>
-                            <constraint firstItem="Lei-5M-9Gs" firstAttribute="centerX" secondItem="MMQ-IT-qOo" secondAttribute="centerX" id="raY-Dj-FTy"/>
+                            <constraint firstItem="a0L-h9-sNL" firstAttribute="top" secondItem="0i7-3b-bEH" secondAttribute="bottom" constant="116" id="2KM-rm-caH"/>
+                            <constraint firstItem="ela-Fh-ukI" firstAttribute="trailing" secondItem="YwJ-Qa-sID" secondAttribute="trailing" id="3cF-Ex-9ja"/>
+                            <constraint firstItem="0i7-3b-bEH" firstAttribute="leading" secondItem="MMQ-IT-qOo" secondAttribute="leadingMargin" constant="13" id="5nm-Em-ETe"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YwJ-Qa-sID" secondAttribute="trailing" constant="34" id="NF5-Vt-Xnf"/>
+                            <constraint firstItem="0i7-3b-bEH" firstAttribute="leading" secondItem="YwJ-Qa-sID" secondAttribute="leading" id="SFB-s0-6xF"/>
+                            <constraint firstItem="0i7-3b-bEH" firstAttribute="top" secondItem="YwJ-Qa-sID" secondAttribute="bottom" constant="54" id="TFa-oT-gfG"/>
+                            <constraint firstItem="YwJ-Qa-sID" firstAttribute="leading" secondItem="MMQ-IT-qOo" secondAttribute="leadingMargin" constant="13" id="Yr5-OL-a6R"/>
+                            <constraint firstItem="YwJ-Qa-sID" firstAttribute="top" secondItem="fNh-oF-Izj" secondAttribute="bottom" constant="46" id="ev3-VD-RLa"/>
+                            <constraint firstItem="Lei-5M-9Gs" firstAttribute="top" secondItem="ela-Fh-ukI" secondAttribute="bottom" constant="31" id="hIY-Me-5fB"/>
+                            <constraint firstItem="0i7-3b-bEH" firstAttribute="trailing" secondItem="YwJ-Qa-sID" secondAttribute="trailing" id="kUz-K7-DIX"/>
+                            <constraint firstItem="fNh-oF-Izj" firstAttribute="leading" secondItem="YwJ-Qa-sID" secondAttribute="leading" id="mLK-XE-opo"/>
+                            <constraint firstItem="Lei-5M-9Gs" firstAttribute="top" secondItem="MMQ-IT-qOo" secondAttribute="top" constant="150" id="pAG-E5-Xi1"/>
+                            <constraint firstItem="Lei-5M-9Gs" firstAttribute="leading" secondItem="MMQ-IT-qOo" secondAttribute="leadingMargin" constant="4" id="t7L-Lg-7hJ"/>
+                            <constraint firstItem="Lei-5M-9Gs" firstAttribute="centerX" secondItem="MMQ-IT-qOo" secondAttribute="centerX" id="tqL-8G-Mpl"/>
+                            <constraint firstItem="ela-Fh-ukI" firstAttribute="top" secondItem="cIm-e0-J51" secondAttribute="bottom" constant="26" id="vB0-ND-AFh"/>
+                            <constraint firstAttribute="bottom" secondItem="YwJ-Qa-sID" secondAttribute="bottom" constant="199" id="xMM-v5-FAG"/>
+                            <constraint firstItem="ela-Fh-ukI" firstAttribute="leading" secondItem="fNh-oF-Izj" secondAttribute="leading" id="xWy-Xl-FUV"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Detail" id="cra-N8-TIN"/>
                     <connections>
                         <outlet property="bikou" destination="Lei-5M-9Gs" id="i1E-dY-yG1"/>
                         <outlet property="dayTime" destination="fNh-oF-Izj" id="Pya-81-PYu"/>
+                        <outlet property="inMoney" destination="YwJ-Qa-sID" id="tnn-pT-QhG"/>
+                        <outlet property="outMoney" destination="0i7-3b-bEH" id="Mda-Yf-OLt"/>
+                        <outlet property="torihikiname" destination="ela-Fh-ukI" id="kAW-6t-v0H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lrm-kH-fPn" sceneMemberID="firstResponder"/>

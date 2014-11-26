@@ -53,12 +53,13 @@ class MasterViewController: UITableViewController {
                 
                 let dataget: NSDictionary = jsonArray[indexPath.row] as NSDictionary
                 let setObj:DataTorhikiModel = DataTorhikiModel()
+                //クラス変数にセット
                 setObj.bikou = dataget.objectForKey("bikou") as? String
                 setObj.dayTime = dataget.objectForKey("dayTime") as? String
                 
-                //let object:String = dataget.objectForKey("bikou") as String
-                
-//                let object = jsonArray[indexPath.row] as String
+                setObj.torihikiName = dataget.objectForKey("torihikiName") as? String
+                setObj.inMoney = dataget.objectForKey("inMoney") as? String
+                setObj.outMoney = dataget.objectForKey("outMoney") as? String
                 
                 let controller = segue.destinationViewController as DetailViewController
                 controller.detailItem = setObj
